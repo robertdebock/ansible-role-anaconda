@@ -19,6 +19,8 @@ This example is taken from `molecule/default/playbook.yml`:
 
   roles:
     - role: robertdebock.bootstrap
+    - role: robertdebock.epel
+    - role: robertdebock.buildtools
     - role: robertdebock.python_pip
     - role: robertdebock.anaconda
 
@@ -63,6 +65,8 @@ The following roles can be installed to ensure all requirements are met, using `
 ```yaml
 ---
 - robertdebock.bootstrap
+- robertdebock.buildtools
+- robertdebock.epel
 - robertdebock.python_pip
 
 ```
@@ -83,8 +87,8 @@ This role has been tested against the following distributions and Ansible versio
 
 |distribution|ansible 2.6|ansible 2.7|ansible devel|
 |------------|-----------|-----------|-------------|
-|alpine-edge*|yes|yes|yes*|
-|alpine-latest|yes|yes|yes*|
+|alpine-edge*|no|no|no*|
+|alpine-latest|no|no|no*|
 |archlinux|yes|yes|yes*|
 |centos-6|yes|yes|yes*|
 |centos-latest|yes|yes|yes*|
