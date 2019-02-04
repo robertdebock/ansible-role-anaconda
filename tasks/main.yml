@@ -1,0 +1,54 @@
+---
+# tasks file for anaconda
+- name: test veriables and environment
+  assert:
+    that:
+      - anaconda_package_state is defined
+      - anaconda_package_state == "present" or
+        anaconda_package_state == "latest" or
+        anaconda_package_state == "absent"
+      - anaconda_python_version is defined
+      - anaconda_python_version == 2 or
+        anaconda_python_version == 3
+      - anaconda_version is defined
+
+- name: install requirements (package)
+  package:
+    name: "{{ item.name }}"
+    state: "{{ anaconda_package_state }}"
+  with_items:
+    - "{{ anaconda_requirements }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when:
+    - item.type == "package"
+  register: anaconda_install_requirements_package
+  until: anaconda_install_requirements_package is succeeded
+  retries: 3
+
+- name: install requirements (pip)
+  pip:
+    name: "{{ item.name }}"
+    state: "{{ anaconda_package_state }}"
+  with_items:
+    - "{{ anaconda_requirements }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when:
+    - item.type == "pip"
+  register: anaconda_install_requirements_pip
+  until: anaconda_install_requirements_pip is succeeded
+  retries: 3
+
+- name: download anaconda
+  get_url:
+    url: "{{ anaconda_url }}"
+    dest: "{{ anaconda_download_dest }}"
+  register: anaconda_download_anaconda
+  until: anaconda_download_anaconda is succeeded
+  retries: 3
+
+- name: install anaconda
+  command: bash {{ anaconda_download_dest }}/{{ anaconda_file }} -b -p {{ anaconda_prefix }}
+  args:
+    creates: "{{ anaconda_prefix }}"
