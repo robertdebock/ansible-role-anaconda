@@ -2,7 +2,7 @@
 galaxy_info:
   author: Robert de Bock
   role_name: anaconda
-  description: Install and configure anaconda on your system.
+  description: Install anaconda on your system.
   license: Apache-2.0
   company: none
   min_ansible_version: 2.6

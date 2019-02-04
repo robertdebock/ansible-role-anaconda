@@ -3,7 +3,7 @@ anaconda
 
 [![Build Status](https://travis-ci.org/robertdebock/ansible-role-anaconda.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-anaconda)
 
-Install and configure anaconda on your system.
+Install anaconda on your system.
 
 Example Playbook
 ----------------
@@ -19,6 +19,7 @@ This example is taken from `molecule/default/playbook.yml`:
 
   roles:
     - role: robertdebock.bootstrap
+    - role: robertdebock.python_pip
     - role: robertdebock.anaconda
 
 ```
@@ -62,6 +63,7 @@ The following roles can be installed to ensure all requirements are met, using `
 ```yaml
 ---
 - robertdebock.bootstrap
+- robertdebock.python_pip
 
 ```
 
