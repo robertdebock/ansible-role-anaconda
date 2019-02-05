@@ -11,6 +11,8 @@
       - anaconda_python_version == 2 or
         anaconda_python_version == 3
       - anaconda_version is defined
+      - anaconda_jupyter_notebook_ip is defined
+      - anaconda_jupyter_notebook_port is defined
 
 - name: install requirements (package)
   package:
@@ -52,3 +54,42 @@
   command: bash {{ anaconda_download_dest }}/{{ anaconda_file }} -b -p {{ anaconda_prefix }}
   args:
     creates: "{{ anaconda_prefix }}"
+
+- name: register jupyter-notebook to sysvinit
+  template:
+    src: jupyter-notebook.j2
+    dest: "/etc/init.d/jupyter-notebook"
+    mode: "0750"
+  when:
+    - ansible_service_mgr == "sysvinit"
+      or ansible_service_mgr == "upstart"
+  notify:
+    - restart jupyter-notebook
+
+- name: register jupyter-notebook to systemd
+  template:
+    src: jupyter-notebook.service.j2
+    dest: "/etc/systemd/system/jupyter-notebook.service"
+    mode: "0755"
+  when:
+    - ansible_service_mgr == "systemd"
+  notify:
+    - systemctl daemon-reload
+    - restart jupyter-notebook
+
+- name: modify selinux settings
+  seboolean:
+    name: domain_can_mmap_files
+    state: yes
+    persistent: yes
+  when:
+    - ansible_selinux.status is defined
+    - ansible_selinux.status == "enabled"
+
+- name: start and enable jupyter-notebook
+  service:
+    name: "jupyter-notebook"
+    state: started
+    enabled: yes
+  when:
+    - ansible_virtualization_type != "docker" or anaconda_ignore_docker

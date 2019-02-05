@@ -43,6 +43,10 @@ anaconda_python_version: 3
 # See https://www.anaconda.com/distribution/
 anaconda_version: 2018.12
 
+# What ip and port to let juniper-notebook listen to.
+anaconda_jupyter_notebook_ip: 0.0.0.0
+anaconda_jupyter_notebook_port: 8888
+
 # Where to save the (large) download file
 anaconda_download_dest: /tmp
 
@@ -51,6 +55,11 @@ anaconda_prefix: /root/anaconda3
 
 # To update packages this role places on the system, set `anaconda_package_state` to `latest`.
 anaconda_package_state: present
+
+# Some Docker containers do not allow managing services, rebooting and writing
+# to some locations in /etc. The role skips tasks that will typically fail in
+# Docker. With this parameter you can tell the role to -not- skip these tasks.
+anaconda_ignore_docker: yes
 
 ```
 
@@ -90,7 +99,7 @@ This role has been tested against the following distributions and Ansible versio
 |alpine-edge*|no|no|no*|
 |alpine-latest|no|no|no*|
 |archlinux|yes|yes|yes*|
-|centos-6|yes|yes|yes*|
+|centos-6|no|no|no*|
 |centos-latest|yes|yes|yes*|
 |debian-latest|yes|yes|yes*|
 |debian-stable|yes|yes|yes*|

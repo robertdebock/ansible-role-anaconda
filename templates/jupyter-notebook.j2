@@ -1,0 +1,54 @@
+#!/bin/sh
+{{ ansible_managed | comment }}
+#
+#	/etc/init.d/juniper-notebook
+#
+#	juniper-notebook
+#	Start Anaconda's juniper notebook.
+#
+# chkconfig: 2345 20 80
+# description: junitper-notebook
+
+# Source function library.
+if [ -f /etc/init.d/functions ] ; then
+  . /etc/init.d/functions
+fi
+
+start() {
+  echo -n "Starting juniper-notebook }}: "
+  returncode=$({{ anaconda_prefix }}/bin/jupyter notebook --ip={{ anaconda_jupyter_notebook_ip }} --port={{ anaconda_jupyter_notebook_port}})
+  touch /var/lock/subsys/juniper-notebook
+  return ${returncode}
+}
+
+stop() {
+  echo -n "Shutting down juniper-notebook: "
+  returncode=$(pkill -f "{{ anaconda_prefix }}/bin/python ./jupyter-notebook")
+  rm -f /var/lock/subsys/juniper-notebook
+  return ${returncode}
+}
+
+case "$1" in
+  start)
+    start
+  ;;
+  stop)
+    stop
+  ;;
+  status)
+    echo "not supported."
+  ;;
+  restart)
+    stop
+    start
+  ;;
+  reload)
+    echo "not supported."
+  ;;
+    *)
+  echo "Usage: <servicename> {start|stop|status|restart|reload}"
+  exit 1
+  ;;
+esac
+
+exit $?

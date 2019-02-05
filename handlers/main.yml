@@ -1,8 +1,14 @@
 ---
 # handlers file for anaconda
-- name: restart anaconda
+- name: systemctl daemon-reload
+  systemd:
+    daemon_reload: yes
+  when:
+    - ansible_virtualization_type != "docker" or anaconda_ignore_docker
+
+- name: restart jupyter-notebook
   service:
-    name: "{{ anaconda_service }}"
+    name: jupyter-notebook
     state: restarted
   when:
     - ansible_virtualization_type != "docker" or anaconda_ignore_docker
