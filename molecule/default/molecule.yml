@@ -34,8 +34,10 @@ platforms:
     image: opensuse:leap
   - name: anaconda-opensuse-tumbleweed
     image: opensuse:tumbleweed
-  - name: anaconda-ubuntu-artful
-    image: ubuntu:artful
+  - name: anaconda-ubuntu-latest
+    image: ubuntu:latest
+  - name: anaconda-ubuntu-rolling
+    image: ubuntu:rolling
   - name: anaconda-ubuntu-devel
     image: ubuntu:devel
 provisioner:
