@@ -15,3 +15,8 @@ _anaconda_requirements:
       type: pip
 
 anaconda_requirements: "{{ _anaconda_requirements[ansible_distribution] | default(_anaconda_requirements['default']) }}"
+
+service_list:
+  - name: anaconda
+    description: Anaconda Notebook
+    start_command: "{{ anaconda_prefix }}/bin/jupyter notebook --ip={{ anaconda_jupyter_notebook_ip }} --port={{ anaconda_jupyter_notebook_port }} --allow-root"
