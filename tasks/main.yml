@@ -17,7 +17,7 @@
 - name: install requirements (package)
   package:
     name: "{{ item.name }}"
-    state: "{{ anaconda_package_state }}"
+    state: present
   with_items:
     - "{{ anaconda_requirements }}"
   loop_control:
@@ -31,7 +31,7 @@
 - name: install requirements (pip)
   pip:
     name: "{{ item.name }}"
-    state: "{{ anaconda_package_state }}"
+    state: present
   with_items:
     - "{{ anaconda_requirements }}"
   loop_control:

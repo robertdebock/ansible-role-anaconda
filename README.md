@@ -51,9 +51,6 @@ anaconda_download_dest: /tmp
 
 # Where to install anaconda
 anaconda_prefix: /root/anaconda3
-
-# To update packages this role places on the system, set `anaconda_package_state` to `latest`.
-anaconda_package_state: present
 ```
 
 Requirements
