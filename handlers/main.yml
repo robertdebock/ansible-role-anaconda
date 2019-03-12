@@ -4,11 +4,11 @@
   systemd:
     daemon_reload: yes
   when:
-    - ansible_virtualization_type != "docker" or anaconda_ignore_docker
+    - ansible_virtualization_type != "docker"
 
 - name: restart jupyter-notebook
   service:
     name: jupyter-notebook
     state: restarted
   when:
-    - ansible_virtualization_type != "docker" or anaconda_ignore_docker
+    - ansible_virtualization_type != "docker"
