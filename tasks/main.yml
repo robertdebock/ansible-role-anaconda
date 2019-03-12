@@ -3,10 +3,6 @@
 - name: test veriables and environment
   assert:
     that:
-      - anaconda_package_state is defined
-      - anaconda_package_state == "present" or
-        anaconda_package_state == "latest" or
-        anaconda_package_state == "absent"
       - anaconda_python_version is defined
       - anaconda_python_version == 2 or
         anaconda_python_version == 3
