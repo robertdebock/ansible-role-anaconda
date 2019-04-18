@@ -7,8 +7,8 @@
       - anaconda_python_version == 2 or
         anaconda_python_version == 3
       - anaconda_version is defined
-      - anaconda_jupyter_notebook_ip is defined
-      - anaconda_jupyter_notebook_port is defined
+      - anaconda_ip is defined
+      - anaconda_port is defined
 
 - name: install requirements (package)
   package:
