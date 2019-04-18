@@ -64,9 +64,9 @@
     - ansible_selinux.status is defined
     - ansible_selinux.status == "enabled"
 
-- name: start and enable jupyter-notebook
+- name: start and enable anaconda
   service:
-    name: "jupyter-notebook"
+    name: "anaconda"
     state: started
     enabled: yes
   when:
