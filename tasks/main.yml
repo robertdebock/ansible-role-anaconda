@@ -55,11 +55,18 @@
   import_role:
     name: robertdebock.service
 
-- name: modify selinux settings
-  seboolean:
-    name: domain_can_mmap_files
-    state: yes
-    persistent: yes
+- block:
+    - name: modify selinux settings
+      seboolean:
+        name: domain_can_mmap_files
+        state: yes
+        persistent: yes
+
+  rescue:
+    - name: tell user that it is okay
+      debug:
+        msg: skipping selinux settings
+
   when:
     - ansible_selinux.status is defined
     - ansible_selinux.status == "enabled"
@@ -69,3 +76,5 @@
     name: "anaconda"
     state: started
     enabled: yes
+  when:
+    - ansible_virtualization_type != "docker"
