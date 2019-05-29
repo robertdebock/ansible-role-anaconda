@@ -11,8 +11,6 @@ platforms:
   - name: anaconda-archlinux
     image: archlinux/base
     pre_build_image: yes
-    command: /sbin/init
-    privileged: yes
 provisioner:
   name: ansible
   playbooks:
