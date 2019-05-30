@@ -55,21 +55,24 @@
   import_role:
     name: robertdebock.service
 
-- block:
-    - name: modify selinux settings
-      seboolean:
-        name: domain_can_mmap_files
-        state: yes
-        persistent: yes
-
-  rescue:
-    - name: tell user that it is okay
-      debug:
-        msg: skipping selinux settings
-
+- name: check for domain_can_mmap_files seboolean
+  command: getsebool domain_can_mmap_files
+  register: getsebool_domain_can_mmap_files
+  changed_when: false
+  failed_when: false
   when:
     - ansible_selinux.status is defined
     - ansible_selinux.status == "enabled"
+
+- name: modify selinux settings
+  seboolean:
+    name: domain_can_mmap_files
+    state: yes
+    persistent: yes
+  when:
+    - ansible_selinux.status is defined
+    - ansible_selinux.status == "enabled"
+    - getsebool_domain_can_mmap_files.rc == 0
 
 - name: start and enable anaconda
   service:
