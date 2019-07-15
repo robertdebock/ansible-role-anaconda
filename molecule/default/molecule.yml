@@ -23,9 +23,6 @@ platforms:
   - name: anaconda-centos-latest
     image: centos:latest
     pre_build_image: yes
-  - name: anaconda-debian-latest
-    image: debian:latest
-    pre_build_image: yes
   - name: anaconda-debian-stable
     image: debian:stable
     pre_build_image: yes
