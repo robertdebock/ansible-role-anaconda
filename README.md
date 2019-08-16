@@ -115,6 +115,11 @@ This role has been tested against the following distributions and Ansible versio
 
 A single star means the build may fail, it's marked as an experimental build.
 
+Upstream version(s)
+-------------------
+
+The upstream version of this project can be found [here](https://www.anaconda.com/distribution/).
+
 Testing
 -------
 
