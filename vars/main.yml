@@ -5,16 +5,13 @@ anaconda_url: "https://repo.anaconda.com/archive/Anaconda{{ anaconda_python_vers
 
 anaconda_file: Anaconda{{ anaconda_python_version }}-{{ anaconda_version }}-Linux-{{ ansible_architecture }}.sh
 
-_anaconda_requirements:
-  default:
-    - name: bash
-      type: package
-    - name: bzip2
-      type: package
-    - name: pexpect
-      type: pip
-
-anaconda_requirements: "{{ _anaconda_requirements[ansible_distribution] | default(_anaconda_requirements['default']) }}"
+anaconda_requirements:
+  - name: bash
+    type: package
+  - name: bzip2
+    type: package
+  - name: pexpect
+    type: pip
 
 service_list:
   - name: anaconda
