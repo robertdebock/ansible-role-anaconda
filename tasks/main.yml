@@ -1,15 +1,5 @@
 ---
 # tasks file for anaconda
-- name: test veriables and environment
-  assert:
-    that:
-      - anaconda_python_version is defined
-      - anaconda_python_version == 2 or
-        anaconda_python_version == 3
-      - anaconda_version is defined
-      - anaconda_ip is defined
-      - anaconda_port is defined
-
 - name: install requirements (package)
   package:
     name: "{{ item.name }}"
