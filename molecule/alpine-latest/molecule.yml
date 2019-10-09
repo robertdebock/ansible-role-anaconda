@@ -11,6 +11,7 @@ platforms:
   - name: anaconda-alpine-latest
     image: alpine:latest
     pre_build_image: yes
+    command: sh -c "while true ; do sleep 1 ; done"
 provisioner:
   name: ansible
   playbooks:

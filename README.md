@@ -114,8 +114,8 @@ This role has been tested against the following distributions and Ansible versio
 
 |distribution|ansible 2.7|ansible 2.8|ansible devel|
 |------------|-----------|-----------|-------------|
-|alpine-edge*|no|no|no*|
-|alpine-latest|no|no|no*|
+|alpine-edge*|yes|yes|yes*|
+|alpine-latest|yes|yes|yes*|
 |archlinux|yes|yes|yes*|
 |centos-7|yes|yes|yes*|
 |centos-latest|yes|yes|yes*|
