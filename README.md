@@ -114,8 +114,8 @@ This role has been tested against the following distributions and Ansible versio
 
 |distribution|ansible 2.7|ansible 2.8|ansible devel|
 |------------|-----------|-----------|-------------|
-|alpine-edge*|yes|yes|yes*|
-|alpine-latest|yes|yes|yes*|
+|alpine-edge*|no|no|no*|
+|alpine-latest|no|no|no*|
 |archlinux|yes|yes|yes*|
 |centos-7|yes|yes|yes*|
 |centos-latest|yes|yes|yes*|
@@ -130,6 +130,14 @@ This role has been tested against the following distributions and Ansible versio
 
 A single star means the build may fail, it's marked as an experimental build.
 
+Exceptions
+----------
+
+Some variarations of the build matrix do not work. These are the variations and reasons why the build won't work:
+
+| variation                 | reason                 |
+|---------------------------|------------------------|
+| Alpine | /tmp/Anaconda3-2018.12-Linux-x86_64.sh: line 377: /root/anaconda3/pkgs/python-3.7.1-h0371630_7/bin/python: No such file or directory |
 
 Included version(s)
 -------------------
