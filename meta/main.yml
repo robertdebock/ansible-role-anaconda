@@ -31,7 +31,6 @@ galaxy_info:
 
   galaxy_tags:
     - anaconda
-    - alpine
     - archlinux
     - centos
     - debian
