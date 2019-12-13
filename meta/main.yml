@@ -33,6 +33,5 @@ galaxy_info:
     - anaconda
     - archlinux
     - centos
-    - rhel
 
 dependencies: []
