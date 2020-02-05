@@ -48,6 +48,7 @@
 - name: check for domain_can_mmap_files seboolean
   command: getsebool domain_can_mmap_files
   register: getsebool_domain_can_mmap_files
+  check_more: no
   changed_when: false
   failed_when: false
   when:
