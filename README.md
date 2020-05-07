@@ -107,9 +107,9 @@ This role has been tested on these [container images](https://hub.docker.com/):
 
 |container|tags|
 |---------|----|
-|debian|all|
 |el|7, 8|
-|fedora|all|
+|debian|buster, bullseye|
+|fedora|32|
 |opensuse|all|
 |ubuntu|focal, bionic, xenial|
 
