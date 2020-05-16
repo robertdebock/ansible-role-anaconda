@@ -45,7 +45,7 @@
 
 - name: check for domain_can_mmap_files seboolean
   command: getsebool domain_can_mmap_files
-  register: getsebool_domain_can_mmap_files
+  register: anaconda_getsebool_domain_can_mmap_files
   check_mode: no
   changed_when: false
   failed_when: false
@@ -61,7 +61,7 @@
   when:
     - ansible_selinux.status is defined
     - ansible_selinux.status == "enabled"
-    - getsebool_domain_can_mmap_files.rc == 0
+    - anaconda_getsebool_domain_can_mmap_files.rc == 0
 
 - name: start and enable anaconda
   service:
