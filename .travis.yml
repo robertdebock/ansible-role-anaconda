@@ -18,6 +18,7 @@ env:
     - image="centos" tag="latest"
     - image="debian" tag="latest"
     - image="debian" tag="bullseye"
+    - image="fedora" tag="31"
     - image="fedora" tag="latest"
     - image="opensuse" tag="latest"
     - image="ubuntu" tag="latest"
