@@ -1,0 +1,39 @@
+---
+- name: test if anaconda_python_version is set correctly
+  assert:
+    that:
+      - anaconda_python_version is defined
+      - anaconda_python_version | int
+      - anaconda_python_version in [2, 3]
+
+- name: test if anaconda_version is set correctly
+  assert:
+    that:
+      - anaconda_version is defined
+      - anaconda_version | length > 0
+
+- name: test if anaconda_ip is set correctly
+  assert:
+    that:
+      - anaconda_ip is defined
+      - anaconda_ip | length > 0
+
+- name: test if anaconda_port is set correctly
+  assert:
+    that:
+      - anaconda_port is defined
+      - anaconda_port | int
+      - anaconda_port | int > 0
+      - anaconda_port | int < 65536
+
+- name: test if anaconda_download_dest is set correctly
+  assert:
+    that:
+      - anaconda_download_dest is defined
+      - anaconda_download_dest | length > 0
+
+- name: test if anaconda_prefix is set correctly
+  assert:
+    that:
+      - anaconda_prefix is defined
+      - anaconda_prefix | length > 0
