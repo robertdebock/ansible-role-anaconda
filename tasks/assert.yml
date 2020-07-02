@@ -10,6 +10,7 @@
   assert:
     that:
       - anaconda_version is defined
+      - anaconda_version | length > 0
 
 - name: test if anaconda_ip is set correctly
   assert:
