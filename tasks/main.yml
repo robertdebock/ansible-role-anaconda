@@ -12,9 +12,6 @@
     label: "{{ item.name }}"
   when:
     - item.type == "package"
-  register: anaconda_install_requirements_package
-  until: anaconda_install_requirements_package is succeeded
-  retries: 3
 
 - name: install requirements (pip)
   pip:
@@ -25,17 +22,11 @@
     label: "{{ item.name }}"
   when:
     - item.type == "pip"
-  register: anaconda_install_requirements_pip
-  until: anaconda_install_requirements_pip is succeeded
-  retries: 3
 
 - name: download anaconda
   get_url:
     url: "{{ anaconda_url }}"
     dest: "{{ anaconda_download_dest }}"
-  register: anaconda_download_anaconda
-  until: anaconda_download_anaconda is succeeded
-  retries: 3
 
 - name: install anaconda
   command: bash {{ anaconda_download_dest }}/{{ anaconda_file }} -b -p {{ anaconda_prefix }}
