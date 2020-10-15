@@ -31,6 +31,5 @@ galaxy_info:
 
   galaxy_tags:
     - anaconda
-    - centos
 
 dependencies: []
