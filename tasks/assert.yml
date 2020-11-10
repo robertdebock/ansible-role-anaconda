@@ -4,7 +4,7 @@
     that:
       - anaconda_python_version is defined
       - anaconda_python_version | int
-      - anaconda_python_version in [2, 3]
+      - anaconda_python_version in [ 2, 3 ]
     quiet: yes
 
 - name: test if anaconda_version is set correctly
