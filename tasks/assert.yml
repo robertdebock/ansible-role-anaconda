@@ -3,7 +3,7 @@
   assert:
     that:
       - anaconda_python_version is defined
-      - anaconda_python_version | int
+      - anaconda_python_version is number
       - anaconda_python_version in [ 2, 3 ]
     quiet: yes
 
@@ -25,7 +25,7 @@
   assert:
     that:
       - anaconda_port is defined
-      - anaconda_port | int
+      - anaconda_port is number
       - anaconda_port | int > 0
       - anaconda_port | int < 65536
     quiet: yes
