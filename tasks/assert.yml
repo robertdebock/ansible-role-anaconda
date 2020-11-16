@@ -24,8 +24,8 @@
     that:
       - anaconda_port is defined
       - anaconda_port is number
-      - anaconda_port | int > 0
-      - anaconda_port | int < 65536
+      - anaconda_port > 0
+      - anaconda_port < 65536
     quiet: yes
 
 - name: test if anaconda_download_dest is set correctly
