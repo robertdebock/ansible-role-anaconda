@@ -1,4 +1,5 @@
 ---
+
 - name: test if anaconda_python_version is set correctly
   assert:
     that:
