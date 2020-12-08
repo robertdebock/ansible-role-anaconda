@@ -2,9 +2,9 @@
 
 Install anaconda on your system.
 
-|Travis|GitHub|Quality|Downloads|Version|
-|------|------|-------|---------|-------|
-|[![travis](https://travis-ci.com/robertdebock/ansible-role-anaconda.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-anaconda)|[![github](https://github.com/robertdebock/ansible-role-anaconda/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-anaconda/actions)|[![quality](https://img.shields.io/ansible/quality/37541)](https://galaxy.ansible.com/robertdebock/anaconda)|[![downloads](https://img.shields.io/ansible/role/d/37541)](https://galaxy.ansible.com/robertdebock/anaconda)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-anaconda.svg)](https://github.com/robertdebock/ansible-role-anaconda/releases/)|
+|Travis|GitHub|GitLab|Quality|Downloads|Version|
+|------|------|------|-------|---------|-------|
+|[![travis](https://travis-ci.com/robertdebock/ansible-role-anaconda.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-anaconda)|[![github](https://github.com/robertdebock/ansible-role-anaconda/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-anaconda/actions)|[![gitlab](https://gitlab.com/robertdebock/ansible-role-anaconda/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-anaconda)|[![quality](https://img.shields.io/ansible/quality/37541)](https://galaxy.ansible.com/robertdebock/anaconda)|[![downloads](https://img.shields.io/ansible/role/d/37541)](https://galaxy.ansible.com/robertdebock/anaconda)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-anaconda.svg)](https://github.com/robertdebock/ansible-role-anaconda/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
