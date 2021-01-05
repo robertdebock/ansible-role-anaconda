@@ -12,8 +12,3 @@ anaconda_requirements:
     type: package
   - name: pexpect
     type: pip
-
-service_list:
-  - name: anaconda
-    description: Anaconda Notebook
-    start_command: "{{ anaconda_prefix }}/bin/jupyter notebook --ip={{ anaconda_ip }} --port={{ anaconda_port }} --allow-root"
