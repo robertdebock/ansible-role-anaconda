@@ -7,7 +7,7 @@
   delegate_to: localhost
 
 - name: install requirements (package)
-  package:
+  ansible.builtin.package:
     name: "{{ item.name }}"
     state: present
   loop: "{{ anaconda_requirements }}"
@@ -17,7 +17,7 @@
     - item.type == "package"
 
 - name: install requirements (pip)
-  pip:
+  ansible.builtin.pip:
     name: "{{ item.name }}"
     state: present
   loop: "{{ anaconda_requirements }}"
@@ -27,7 +27,7 @@
     - item.type == "pip"
 
 - name: download anaconda
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ anaconda_url }}"
     dest: "{{ anaconda_download_dest }}"
 
@@ -37,7 +37,7 @@
     creates: "{{ anaconda_prefix }}"
 
 - name: create anaconda service
-  import_role:
+  ansible.builtin.import_role:
     name: robertdebock.service
   vars:
     service_list:
@@ -66,7 +66,7 @@
     - ansible_selinux.status == "enabled"
 
 - name: start and enable anaconda
-  service:
+  ansible.builtin.service:
     name: anaconda
     state: started
     enabled: yes
