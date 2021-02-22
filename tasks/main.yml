@@ -55,7 +55,7 @@
       failed_when: no
 
     - name: modify selinux settings
-      seboolean:
+      ansible.posix.seboolean:
         name: domain_can_mmap_files
         state: yes
         persistent: yes
