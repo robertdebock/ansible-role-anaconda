@@ -32,7 +32,7 @@
     dest: "{{ anaconda_download_dest }}"
 
 - name: install anaconda
-  command: bash {{ anaconda_download_dest }}/{{ anaconda_file }} -b -p {{ anaconda_prefix }}
+  ansible.builtin.command: bash {{ anaconda_download_dest }}/{{ anaconda_file }} -b -p {{ anaconda_prefix }}
   args:
     creates: "{{ anaconda_prefix }}"
 
