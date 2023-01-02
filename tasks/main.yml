@@ -42,7 +42,7 @@
     name: robertdebock.service
   vars:
     service_list:
-      - name: Anaconda
+      - name: anaconda
         description: Anaconda Notebook
         start_command: "{{ anaconda_prefix }}/bin/jupyter notebook --ip={{ anaconda_ip }} --port={{ anaconda_port }} --allow-root"
 
