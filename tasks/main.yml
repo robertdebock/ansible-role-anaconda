@@ -30,6 +30,7 @@
   ansible.builtin.get_url:
     url: "{{ anaconda_url }}"
     dest: "{{ anaconda_download_dest }}"
+    mode: "0640"
 
 - name: Install anaconda
   ansible.builtin.command:
