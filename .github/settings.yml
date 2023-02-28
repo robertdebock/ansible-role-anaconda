@@ -5,4 +5,4 @@
 repository:
   description: Install anaconda on your system.
   homepage: https://robertdebock.nl/
-  topics: anaconda, ansible, molecule, tox, playbook, hacktoberfest
+  topics: anaconda, ansible, molecule, tox, playbook
